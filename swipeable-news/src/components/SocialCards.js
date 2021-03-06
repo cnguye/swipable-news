@@ -2,7 +2,6 @@ import React from 'react';
 import SocialCard from './SocialCard';
 
 import '../styles/social-card.scss';
-// import UndoDelete from './UndoDelete';
 
 function SocialCards({
     currCategoryHeadlines,
