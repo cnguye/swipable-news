@@ -2,7 +2,7 @@
   "name": "h_social_card",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://18.224.94.118/",
   "homepage": "/swipeable-news/",
   "dependencies": {
     "@babel/core": "7.12.3",
