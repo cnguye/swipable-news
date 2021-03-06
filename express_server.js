@@ -1,9 +1,6 @@
-console.log('No value for apiKey yet:', process.env.apiKey);
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-
-console.log('Now the value for apiKey is:', process.env.apiKey);
 
 const { response } = require('express');
 const express = require('express');
@@ -21,7 +18,7 @@ app.get(
         const { country, category, pagesize } = req.params;
         request(
             `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pagesize=${pagesize}&apiKey=${process.env.apiKey}`,
-            function (error, reponse, body) {
+            function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     const newsAPIResponse = JSON.parse(body);
                     res.send({ newsAPIResponse });
