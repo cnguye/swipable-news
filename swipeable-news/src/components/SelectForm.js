@@ -31,7 +31,8 @@ function SelectForm(props) {
             }
         );
         setSelectedNewCategory(filteredNewsAPICategories[0]);
-    }, [selectedCategories, setSelectedNewCategory, newsAPICategories]);
+        // eslint-disable-next-line
+    }, [selectedCategories]);
 
     const handleSelectedNewCategory = (e) => {
         setSelectedNewCategory(e.target.value);
@@ -70,11 +71,14 @@ function SelectForm(props) {
             return !selectedCategories.includes(category) && category;
         })
         .map((category) => {
-            return (
-                <option key={`option-${category}`} value={category}>
-                    {category}
-                </option>
-            );
+            if (category === selectedNewCategory) {
+                return (
+                    <option key={`option-${category}`} value={category}>
+                        {category}
+                    </option>
+                );
+            } else
+                return <option key={`option-${category}`}>{category}</option>;
         });
 
     const handleHoverOverDeleteBtn = (e) => {
@@ -92,7 +96,7 @@ function SelectForm(props) {
             <div className='category-selector__section category-selector--select-body'>
                 <div className='category-selector--select'>
                     <select
-                        defaultValue='business'
+                        value={selectedNewCategory}
                         onChange={handleSelectedNewCategory}
                     >
                         {newsAPICategoriesToSelect}
